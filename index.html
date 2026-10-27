@@ -4528,6 +4528,9 @@ plt.<span class="m-fn">show</span>()</code></pre>
   function closeDetail(){document.querySelectorAll('.detail').forEach(function(d){d.hidden=true}); root.style.overflow=''; if(lastOpener) lastOpener.focus();}
   document.querySelectorAll('[data-open]').forEach(function(b){b.addEventListener('click',function(){openDetail(b.dataset.open,b)})});
   document.querySelectorAll('[data-close]').forEach(function(b){b.addEventListener('click',closeDetail)});
+  // Enlace directo a un proyecto o artículo: mboulman.com/?a=id
+  var qa=(location.search.match(/[?&]a=([\w-]+)/)||[])[1]; var qd=qa&&document.getElementById(qa);
+  if(qd&&qd.classList.contains('detail')){ s.hidden=true; openDetail(qa,null); }
   // Ampliar imágenes
   var lb=document.getElementById('lightbox');
   document.querySelectorAll('.shot img').forEach(function(im){im.addEventListener('click',function(){
